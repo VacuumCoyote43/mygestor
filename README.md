@@ -1,4 +1,4 @@
-# MyGestor v2 🏆
+# MyGestor 🏆
 
 Sistema de gestión integral para equipos deportivos que permite administrar jugadores, gastos, pagos y proveedores de manera eficiente y automatizada.
 
@@ -83,8 +83,8 @@ Sistema de gestión integral para equipos deportivos que permite administrar jug
 ### 1. Clonar el repositorio
 
 ```bash
-git clone https://github.com/tu-usuario/MyGestorv2.git
-cd MyGestorv2
+git clone https://github.com/VacuumCoyote43/mygestor.git
+cd mygestor
 ```
 
 ### 2. Instalar dependencias de PHP
@@ -162,7 +162,7 @@ La aplicación estará disponible en `http://localhost:8000`
 Asegúrate de configurar correctamente estas variables en tu archivo `.env`:
 
 ```env
-APP_NAME="MyGestor v2"
+APP_NAME="MyGestor"
 APP_ENV=local
 APP_KEY=
 APP_DEBUG=true
@@ -256,7 +256,7 @@ El archivo `config/custom.php` contiene configuraciones del template Vuexy:
 ## 📁 Estructura del Proyecto
 
 ```
-MyGestorv2/
+mygestor/
 ├── app/
 │   ├── Helpers/           # Funciones helper personalizadas
 │   ├── Http/
