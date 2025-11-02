@@ -13,6 +13,12 @@ return Application::configure(basePath: dirname(__DIR__))
   )
   ->withMiddleware(function (Middleware $middleware) {
     $middleware->web(LocaleMiddleware::class);
+
+    $middleware->web(append: [
+      \App\Http\Middleware\TrustProxies::class,
+      \App\Http\Middleware\ForceHttps::class,
+    ]);
+
     $middleware->alias([
       'rol' => \App\Http\Middleware\RolMiddleware::class,
     ]);
