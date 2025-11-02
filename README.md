@@ -1,66 +1,386 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# MyGestor v2 🏆
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Sistema de gestión integral para equipos deportivos que permite administrar jugadores, gastos, pagos y proveedores de manera eficiente y automatizada.
 
-## About Laravel
+![Laravel](https://img.shields.io/badge/Laravel-11.x-FF2D20?logo=laravel&logoColor=white)
+![PHP](https://img.shields.io/badge/PHP-8.2-777BB4?logo=php&logoColor=white)
+![License](https://img.shields.io/badge/license-MIT-green)
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## 📋 Tabla de Contenidos
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+- [Características](#-características)
+- [Requisitos](#-requisitos)
+- [Instalación](#-instalación)
+- [Configuración](#-configuración)
+- [Uso](#-uso)
+- [Estructura del Proyecto](#-estructura-del-proyecto)
+- [Tecnologías Utilizadas](#-tecnologías-utilizadas)
+- [Desarrollo](#-desarrollo)
+- [Contribuir](#-contribuir)
+- [Licencia](#-licencia)
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## ✨ Características
 
-## Learning Laravel
+### 👥 Gestión de Jugadores
+- CRUD completo de jugadores
+- Importación masiva desde archivos Excel
+- Gestión de información personal (DNI, fecha de nacimiento, dorsal)
+- Gestión de tallas de uniformes (camiseta, pantalón, medias)
+- Cálculo automático de saldos por jugador
+- Visualización detallada de historial de gastos y pagos
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### 💰 Gestión de Gastos
+- Registro de gastos con diferentes tipos
+- Asignación a proveedores
+- **Sistema de reparto inteligente:**
+  - Reparto equitativo entre jugadores
+  - Reparto personalizado por importe
+  - Reparto por reglas personalizadas
+- Validación automática del total repartido
+- Historial completo de gastos del equipo
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+### 💳 Gestión de Pagos
+- Registro de pagos individuales por jugador
+- Importación masiva de pagos desde Excel
+- Actualización automática de saldos
+- Conceptos personalizados por pago
+- Historial completo de pagos
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### 🏢 Gestión de Proveedores
+- CRUD completo de proveedores
+- Relación con gastos realizados
+- Historial de transacciones por proveedor
 
-## Laravel Sponsors
+### 📊 Dashboard y Estadísticas
+- Vista general del estado financiero del equipo
+- Estadísticas en tiempo real
+- Gráficos y visualizaciones interactivas
+- Exportación de reportes a PDF y Excel
+- Asistente de contabilidad con IA
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+### 👤 Autenticación y Roles
+- Sistema de autenticación completo
+- Roles de usuario (Admin, Usuario)
+- Panel de administración exclusivo para administradores
+- Gestión de usuarios desde el panel admin
 
-### Premium Partners
+### 📥 Importación y Exportación
+- Importación de jugadores desde Excel
+- Importación de pagos desde Excel
+- Plantillas descargables para importación
+- Exportación de estadísticas a PDF y Excel
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+## 📦 Requisitos
 
-## Contributing
+- **PHP** >= 8.2
+- **Composer** >= 2.0
+- **Node.js** >= 18.x y **npm** o **yarn**
+- **Base de datos** (MySQL, PostgreSQL, SQLite)
+- **Servidor web** (Apache, Nginx) o Laragon/XAMPP
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+## 🚀 Instalación
 
-## Code of Conduct
+### 1. Clonar el repositorio
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+```bash
+git clone https://github.com/tu-usuario/MyGestorv2.git
+cd MyGestorv2
+```
 
-## Security Vulnerabilities
+### 2. Instalar dependencias de PHP
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+```bash
+composer install
+```
 
-## License
+### 3. Instalar dependencias de Node.js
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+```bash
+npm install
+# o
+yarn install
+```
+
+### 4. Configurar el entorno
+
+Copia el archivo de ejemplo y genera la clave de aplicación:
+
+```bash
+cp .env.example .env
+php artisan key:generate
+```
+
+### 5. Configurar la base de datos
+
+Edita el archivo `.env` y configura tus credenciales de base de datos:
+
+```env
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=mygestor
+DB_USERNAME=tu_usuario
+DB_PASSWORD=tu_contraseña
+```
+
+### 6. Ejecutar migraciones
+
+```bash
+php artisan migrate
+```
+
+### 7. Compilar assets
+
+Para desarrollo:
+
+```bash
+npm run dev
+# o
+yarn dev
+```
+
+Para producción:
+
+```bash
+npm run build
+# o
+yarn build
+```
+
+### 8. Iniciar el servidor de desarrollo
+
+```bash
+php artisan serve
+```
+
+La aplicación estará disponible en `http://localhost:8000`
+
+## ⚙️ Configuración
+
+### Variables de Entorno Importantes
+
+Asegúrate de configurar correctamente estas variables en tu archivo `.env`:
+
+```env
+APP_NAME="MyGestor v2"
+APP_ENV=local
+APP_KEY=
+APP_DEBUG=true
+APP_URL=http://localhost:8000
+
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=mygestor
+DB_USERNAME=root
+DB_PASSWORD=
+
+MAIL_MAILER=smtp
+MAIL_HOST=mailpit
+MAIL_PORT=1025
+MAIL_USERNAME=null
+MAIL_PASSWORD=null
+MAIL_ENCRYPTION=null
+MAIL_FROM_ADDRESS="hello@example.com"
+MAIL_FROM_NAME="${APP_NAME}"
+```
+
+### Configuración Personalizada
+
+El archivo `config/custom.php` contiene configuraciones del template Vuexy:
+- Layout (vertical/horizontal)
+- Tema (default/bordered/semi-dark)
+- Estilo (light/dark)
+- Soporte RTL
+
+## 📖 Uso
+
+### Primeros Pasos
+
+1. **Registrar un usuario administrador:**
+   - Ve a `/register` y crea tu cuenta
+   - Asigna el rol de admin desde la base de datos o usando el comando de artisan
+
+2. **Acceder al sistema:**
+   - Inicia sesión en `/login`
+   - Serás redirigido al dashboard
+
+### Gestión de Jugadores
+
+1. **Crear un jugador:**
+   - Navega a `Jugadores` → `Crear Nuevo`
+   - Completa el formulario con la información del jugador
+   - Guarda los datos
+
+2. **Importar jugadores:**
+   - Ve a `Jugadores` → `Importar`
+   - Descarga la plantilla Excel
+   - Completa la plantilla con los datos
+   - Sube el archivo completado
+
+### Gestión de Gastos
+
+1. **Crear un gasto:**
+   - Ve a `Gastos` → `Crear Nuevo`
+   - Selecciona el tipo de gasto y proveedor
+   - Ingresa el importe total
+   - Guarda el gasto
+
+2. **Repartir un gasto:**
+   - Accede al detalle del gasto
+   - Elige el método de reparto:
+     - **Equitativo**: Divide el gasto entre todos los jugadores seleccionados
+     - **Personalizado**: Asigna importes específicos a cada jugador
+     - **Por regla**: Utiliza reglas personalizadas para el reparto
+   - Verifica que el total asignado coincida con el importe del gasto
+
+### Gestión de Pagos
+
+1. **Registrar un pago:**
+   - Ve a `Pagos` → `Crear Nuevo`
+   - Selecciona el jugador
+   - Ingresa el importe y concepto
+   - El saldo del jugador se actualizará automáticamente
+
+2. **Importar pagos:**
+   - Ve a `Pagos` → `Importar`
+   - Descarga y completa la plantilla Excel
+   - Sube el archivo para importar múltiples pagos
+
+### Dashboard y Estadísticas
+
+- **Dashboard Principal**: Vista general con estadísticas clave
+- **Estadísticas Financieras**: Gráficos detallados y análisis
+- **Exportar Reportes**: Genera reportes en PDF o Excel
+
+## 📁 Estructura del Proyecto
+
+```
+MyGestorv2/
+├── app/
+│   ├── Helpers/           # Funciones helper personalizadas
+│   ├── Http/
+│   │   ├── Controllers/   # Controladores de la aplicación
+│   │   └── Middleware/    # Middlewares personalizados
+│   ├── Imports/           # Clases para importación Excel
+│   ├── Models/            # Modelos Eloquent
+│   └── Providers/         # Service providers
+├── config/                # Archivos de configuración
+├── database/
+│   ├── migrations/        # Migraciones de base de datos
+│   └── seeders/          # Seeders para datos de prueba
+├── public/                # Archivos públicos (assets, favicon)
+├── resources/
+│   ├── assets/           # Assets fuente (JS, CSS)
+│   ├── js/               # JavaScript compilado
+│   ├── css/              # Estilos CSS
+│   └── views/            # Vistas Blade
+├── routes/
+│   └── web.php           # Rutas de la aplicación
+└── storage/              # Archivos de almacenamiento
+```
+
+## 🛠️ Tecnologías Utilizadas
+
+### Backend
+- **Laravel 11** - Framework PHP
+- **PHP 8.2** - Lenguaje de programación
+- **MySQL/PostgreSQL** - Base de datos
+
+### Frontend
+- **Vuexy Admin Template** - Template administrativo
+- **Bootstrap 5** - Framework CSS
+- **jQuery** - Librería JavaScript
+- **DataTables** - Tablas interactivas
+- **Chart.js** - Gráficos y visualizaciones
+- **Vite** - Build tool para assets
+
+### Librerías y Paquetes
+- **maatwebsite/excel** - Importación/Exportación Excel
+- **Laravel Tinker** - REPL interactivo
+- **Laravel Pint** - Code style fixer
+
+## 💻 Desarrollo
+
+### Comandos Útiles
+
+```bash
+# Ejecutar tests
+php artisan test
+
+# Limpiar caché
+php artisan cache:clear
+php artisan config:clear
+php artisan route:clear
+php artisan view:clear
+
+# Compilar assets en modo desarrollo
+npm run dev
+
+# Compilar assets para producción
+npm run build
+
+# Ejecutar migraciones
+php artisan migrate
+
+# Rollback de migraciones
+php artisan migrate:rollback
+
+# Crear migración
+php artisan make:migration nombre_migracion
+
+# Crear modelo
+php artisan make:model NombreModelo
+
+# Crear controlador
+php artisan make:controller NombreController
+
+# Iniciar Tinker
+php artisan tinker
+```
+
+### Estructura de Base de Datos
+
+**Tablas principales:**
+- `users` - Usuarios del sistema
+- `jugadores` - Jugadores del equipo
+- `proveedores` - Proveedores
+- `gastos` - Gastos del equipo
+- `gasto_jugador` - Tabla pivote para reparto de gastos
+- `pagos_jugadores` - Pagos realizados por jugadores
+
+### Modelos y Relaciones
+
+- **Jugador** ↔ **Gasto** (muchos a muchos con `importe_asignado`)
+- **Jugador** → **PagoJugador** (uno a muchos)
+- **Gasto** → **Proveedor** (muchos a uno)
+- **User** → Roles y permisos
+
+## 🤝 Contribuir
+
+Las contribuciones son bienvenidas. Por favor:
+
+1. Fork el proyecto
+2. Crea una rama para tu feature (`git checkout -b feature/AmazingFeature`)
+3. Commit tus cambios (`git commit -m 'Add some AmazingFeature'`)
+4. Push a la rama (`git push origin feature/AmazingFeature`)
+5. Abre un Pull Request
+
+### Estándares de Código
+
+- Sigue las convenciones de código de Laravel
+- Ejecuta `php artisan pint` antes de hacer commit
+- Escribe tests para nuevas funcionalidades cuando sea posible
+- Documenta tu código cuando sea necesario
+
+## 📝 Licencia
+
+Este proyecto está bajo la Licencia MIT - ver el archivo [LICENSE](LICENSE) para más detalles.
+
+## 👨‍💻 Autor
+
+Desarrollado con ❤️ para la gestión eficiente de equipos deportivos.
+
+---
+
+**Nota**: Este es un proyecto en desarrollo activo. Si encuentras algún problema o tienes sugerencias, por favor abre un issue en el repositorio.
