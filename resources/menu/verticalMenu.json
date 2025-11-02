@@ -1,0 +1,64 @@
+{
+  "menu": [
+    {
+      "url": "/dashboard",
+      "name": "Dashboard",
+      "icon": "menu-icon tf-icons ti ti-dashboard",
+      "slug": "dashboard"
+    },
+    {
+      "url": "/dashboard/estadisticas",
+      "name": "Estadísticas",
+      "icon": "menu-icon tf-icons ti ti-chart-line",
+      "slug": "dashboard.estadisticas.index"
+    },
+    {
+      "url": "/dashboard/contable-ai",
+      "name": "Contabilidad AI",
+      "icon": "menu-icon tf-icons ti ti-robot",
+      "slug": "dashboard.contable_ai"
+    },
+    {
+      "url": "/jugadores",
+      "name": "Jugadores",
+      "icon": "menu-icon tf-icons ti ti-users",
+      "slug": "jugadores.index"
+    },
+    {
+      "url": "/jugadores/import",
+      "name": "Importar Jugadores",
+      "icon": "menu-icon tf-icons ti ti-file-upload",
+      "slug": "jugadores.import"
+    },
+    {
+      "url": "/proveedores",
+      "name": "Proveedores",
+      "icon": "menu-icon tf-icons ti ti-building-store",
+      "slug": "proveedores.index"
+    },
+    {
+      "url": "/gastos",
+      "name": "Gastos",
+      "icon": "menu-icon tf-icons ti ti-receipt",
+      "slug": "gastos.index"
+    },
+    {
+      "url": "/pagos",
+      "name": "Pagos",
+      "icon": "menu-icon tf-icons ti ti-credit-card",
+      "slug": "pagos.index"
+    },
+    {
+      "url": "/pagos/import",
+      "name": "Importar Pagos",
+      "icon": "menu-icon tf-icons ti ti-file-upload",
+      "slug": "pagos.import"
+    },
+    {
+      "url": "/admin",
+      "name": "Administración",
+      "icon": "menu-icon tf-icons ti ti-shield-lock",
+      "slug": "admin.index"
+    }
+  ]
+}
