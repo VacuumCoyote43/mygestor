@@ -9,6 +9,9 @@
         <p class="text-muted">Información del proveedor</p>
     </div>
     <div>
+        <a href="{{ route('proveedores.liquidaciones.index', $proveedor->id_proveedor) }}" class="btn btn-success">
+            <i class="fas fa-money-bill-wave me-1"></i>Liquidaciones
+        </a>
         <a href="{{ route('proveedores.edit', $proveedor->id_proveedor) }}" class="btn btn-warning">
             <i class="fas fa-edit me-1"></i>Editar
         </a>
@@ -33,29 +36,53 @@
             </div>
         </div>
     </div>
-    <div class="col-md-4">
+    <div class="col-md-3">
         <div class="card">
             <div class="card-header">
-                <h5 class="mb-0"><i class="fas fa-wallet me-2"></i>Saldo</h5>
+                <h5 class="mb-0"><i class="fas fa-wallet me-2"></i>Saldo Total</h5>
             </div>
             <div class="card-body text-center">
                 <h2 class="text-info">
                     €{{ number_format($proveedor->saldo_proveedor, 2, ',', '.') }}
                 </h2>
-                <p class="text-muted mb-0">Total de gastos con este proveedor</p>
+                <p class="text-muted mb-0">Total de gastos</p>
             </div>
         </div>
     </div>
-    <div class="col-md-4">
+    <div class="col-md-3">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0"><i class="fas fa-check-circle me-2"></i>Total Pagado</h5>
+            </div>
+            <div class="card-body text-center">
+                <h2 class="text-success">
+                    €{{ number_format($totalPagado, 2, ',', '.') }}
+                </h2>
+                <p class="text-muted mb-0">En liquidaciones</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0"><i class="fas fa-exclamation-triangle me-2"></i>Deuda Pendiente</h5>
+            </div>
+            <div class="card-body text-center">
+                <h2 class="{{ $deudaPendiente > 0 ? 'text-danger' : 'text-success' }}">
+                    €{{ number_format($deudaPendiente, 2, ',', '.') }}
+                </h2>
+                <p class="text-muted mb-0">Por liquidar</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
         <div class="card">
             <div class="card-header">
                 <h5 class="mb-0"><i class="fas fa-chart-bar me-2"></i>Estadísticas</h5>
             </div>
             <div class="card-body">
                 <p><strong>Total Gastos:</strong> {{ $gastos->count() }}</p>
-                <p><strong>Total Importe:</strong> 
-                    €{{ number_format($gastos->sum('importe_total_gasto'), 2, ',', '.') }}
-                </p>
+                <p><strong>Liquidaciones:</strong> {{ $liquidaciones->count() }}</p>
             </div>
         </div>
     </div>

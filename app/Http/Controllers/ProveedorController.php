@@ -56,8 +56,11 @@ class ProveedorController extends Controller
         $proveedor->actualizarSaldo();
         
         $gastos = $proveedor->gastos()->with('jugadores')->orderBy('fecha_gasto', 'desc')->paginate(10);
+        $liquidaciones = $proveedor->liquidaciones()->latest()->get();
+        $totalPagado = $liquidaciones->sum('monto');
+        $deudaPendiente = $proveedor->saldo_proveedor - $totalPagado;
 
-        return view('proveedores.show', compact('proveedor', 'gastos'));
+        return view('proveedores.show', compact('proveedor', 'gastos', 'liquidaciones', 'totalPagado', 'deudaPendiente'));
     }
 
     /**

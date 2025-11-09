@@ -6,6 +6,7 @@ use App\Models\Jugador;
 use App\Models\Proveedor;
 use App\Models\Gasto;
 use App\Models\PagoJugador;
+use App\Models\ProveedorLiquidacion;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -45,8 +46,11 @@ class DashboardController extends Controller
         $deudaJugadores = (float) Jugador::where('saldo_jugador', '>', 0)
             ->sum('saldo_jugador');
         
-        // 3. Deuda con proveedores (saldo total de proveedores)
-        $deudaProveedores = (float) Proveedor::sum('saldo_proveedor');
+        // 3. Deuda con proveedores (gastos - liquidaciones)
+        // Solo contar gastos que tienen proveedor asignado
+        $totalGastosProveedores = (float) Gasto::whereNotNull('proveedor_id')->sum('importe_total_gasto');
+        $totalPagadoProveedores = (float) ProveedorLiquidacion::sum('monto');
+        $deudaProveedores = $totalGastosProveedores - $totalPagadoProveedores;
 
         // 4. Gastos por tipo (agrupados)
         $gastosPorTipo = Gasto::select('tipo_gasto', DB::raw('SUM(importe_total_gasto) as total'))
@@ -111,6 +115,8 @@ class DashboardController extends Controller
             'total_pagos' => $totalPagos,
             'deuda_jugadores' => $deudaJugadores,
             'deuda_proveedores' => $deudaProveedores,
+            'total_gastos_proveedores' => $totalGastosProveedores,
+            'total_pagado_proveedores' => $totalPagadoProveedores,
             'gastos_por_tipo' => $gastosPorTipo,
             'deuda_por_jugador' => $deudaPorJugador,
             'pagos_mensuales' => $pagosMensuales,

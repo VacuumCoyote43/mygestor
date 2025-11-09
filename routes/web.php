@@ -8,7 +8,9 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\JugadorController;
 use App\Http\Controllers\JugadorImportController;
 use App\Http\Controllers\ProveedorController;
+use App\Http\Controllers\ProveedorLiquidacionController;
 use App\Http\Controllers\GastoController;
+use App\Http\Controllers\AdminDatabaseController;
 use App\Http\Controllers\PagoJugadorController;
 use App\Http\Controllers\PagoImportController;
 use Illuminate\Support\Facades\Route;
@@ -74,6 +76,13 @@ Route::middleware('auth')->group(function () {
         Route::get('/{id}/edit', [ProveedorController::class, 'edit'])->name('edit');
         Route::put('/{id}', [ProveedorController::class, 'update'])->name('update');
         Route::delete('/{id}', [ProveedorController::class, 'destroy'])->name('destroy');
+        
+        // Liquidaciones de proveedores
+        Route::prefix('{proveedor}/liquidaciones')->name('liquidaciones.')->group(function () {
+            Route::get('/', [ProveedorLiquidacionController::class, 'index'])->name('index');
+            Route::get('/crear', [ProveedorLiquidacionController::class, 'create'])->name('create');
+            Route::post('/', [ProveedorLiquidacionController::class, 'store'])->name('store');
+        });
     });
 
     // Gastos
@@ -115,6 +124,15 @@ Route::middleware('auth')->group(function () {
         Route::get('/{id}/edit', [AdminController::class, 'edit'])->name('edit');
         Route::put('/{id}', [AdminController::class, 'update'])->name('update');
         Route::delete('/{id}', [AdminController::class, 'destroy'])->name('destroy');
+        
+        // Gestión de Base de Datos
+        Route::prefix('database')->name('database.')->group(function () {
+            Route::get('/', [AdminDatabaseController::class, 'index'])->name('index');
+            Route::post('/export', [AdminDatabaseController::class, 'export'])->name('export');
+            Route::post('/import', [AdminDatabaseController::class, 'import'])->name('import');
+            Route::get('/download/{filename}', [AdminDatabaseController::class, 'download'])->name('download');
+            Route::delete('/delete/{filename}', [AdminDatabaseController::class, 'delete'])->name('delete');
+        });
     });
 
 }); // Cierre del middleware auth

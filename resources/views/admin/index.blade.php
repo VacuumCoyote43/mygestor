@@ -14,9 +14,14 @@
                     </h1>
                     <p class="text-muted">Gestión de usuarios del sistema</p>
                 </div>
-                <a href="{{ route('admin.create') }}" class="btn btn-primary">
-                    <i class="fas fa-user-plus me-1"></i>Crear Usuario
-                </a>
+                <div>
+                    <a href="{{ route('admin.database.index') }}" class="btn btn-info me-2">
+                        <i class="fas fa-database me-1"></i>Gestión de Base de Datos
+                    </a>
+                    <a href="{{ route('admin.create') }}" class="btn btn-primary">
+                        <i class="fas fa-user-plus me-1"></i>Crear Usuario
+                    </a>
+                </div>
             </div>
         </div>
     </div>

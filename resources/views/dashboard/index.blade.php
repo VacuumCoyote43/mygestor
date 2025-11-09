@@ -75,6 +75,46 @@
         </div>
     </div>
 
+    <!-- Resumen de Proveedores -->
+    <div class="row g-3 mb-4">
+        <div class="col-md-4">
+            <div class="card border-0 shadow-sm h-100">
+                <div class="card-body text-center">
+                    <div class="mb-3">
+                        <i class="fas fa-receipt fa-2x text-danger"></i>
+                    </div>
+                    <h5 class="card-title text-muted mb-2">Total Gastos Proveedores</h5>
+                    <h2 class="mb-0 text-danger" id="card-total-gastos-proveedores">€0,00</h2>
+                    <small class="text-muted">Gastos totales</small>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card border-0 shadow-sm h-100">
+                <div class="card-body text-center">
+                    <div class="mb-3">
+                        <i class="fas fa-check-circle fa-2x text-success"></i>
+                    </div>
+                    <h5 class="card-title text-muted mb-2">Total Pagado Proveedores</h5>
+                    <h2 class="mb-0 text-success" id="card-total-pagado-proveedores">€0,00</h2>
+                    <small class="text-muted">En liquidaciones</small>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card border-0 shadow-sm h-100">
+                <div class="card-body text-center">
+                    <div class="mb-3">
+                        <i class="fas fa-exclamation-triangle fa-2x text-danger"></i>
+                    </div>
+                    <h5 class="card-title text-muted mb-2">Deuda Pendiente</h5>
+                    <h2 class="mb-0" id="card-deuda-pendiente-proveedores">€0,00</h2>
+                    <small class="text-muted">Por liquidar</small>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Gráficos -->
     <div class="row g-3 mb-4">
         <!-- Gráfico de Barras: Gastos por Tipo -->

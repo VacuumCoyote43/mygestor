@@ -22,7 +22,9 @@
                         <th>ID</th>
                         <th>Nombre</th>
                         <th>Tipo</th>
-                        <th class="text-end">Saldo</th>
+                        <th class="text-end">Total Gastos (€)</th>
+                        <th class="text-end">Total Pagado (€)</th>
+                        <th class="text-end">Balance (€)</th>
                         <th class="text-center">Acciones</th>
                     </tr>
                 </thead>
@@ -40,17 +42,31 @@
                             </td>
                             <td class="text-end">
                                 <span class="badge bg-info">
-                                    €{{ number_format($proveedor->saldo_proveedor, 2, ',', '.') }}
+                                    €{{ number_format($proveedor->total_gastos, 2, ',', '.') }}
+                                </span>
+                            </td>
+                            <td class="text-end">
+                                <span class="badge bg-success">
+                                    €{{ number_format($proveedor->total_pagado, 2, ',', '.') }}
+                                </span>
+                            </td>
+                            <td class="text-end">
+                                <span class="badge {{ $proveedor->balance > 0 ? 'bg-danger' : 'bg-success' }}">
+                                    €{{ number_format($proveedor->balance, 2, ',', '.') }}
                                 </span>
                             </td>
                             <td class="text-center">
                                 <div class="d-flex justify-content-center gap-2">
+                                    <a href="{{ route('proveedores.liquidaciones.index', $proveedor->id_proveedor) }}" 
+                                       class="btn btn-success btn-sm" title="Liquidaciones">
+                                        <i class="fas fa-money-bill-wave"></i>
+                                    </a>
                                     <a href="{{ route('proveedores.show', $proveedor->id_proveedor) }}" 
-                                       class="btn btn-info" title="Ver">
+                                       class="btn btn-info btn-sm" title="Ver">
                                         <i class="fas fa-eye"></i>
                                     </a>
                                     <a href="{{ route('proveedores.edit', $proveedor->id_proveedor) }}" 
-                                       class="btn btn-warning" title="Editar">
+                                       class="btn btn-warning btn-sm" title="Editar">
                                         <i class="fas fa-edit"></i>
                                     </a>
                                     <form action="{{ route('proveedores.destroy', $proveedor->id_proveedor) }}" 
@@ -58,7 +74,7 @@
                                           onsubmit="return confirmDelete()">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="btn btn-danger" title="Eliminar">
+                                        <button type="submit" class="btn btn-danger btn-sm" title="Eliminar">
                                             <i class="fas fa-trash"></i>
                                         </button>
                                     </form>

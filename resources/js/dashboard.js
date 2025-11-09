@@ -55,6 +55,26 @@ function updateSummaryCards(data) {
     $('#card-total-pagos').text(formatter.format(data.total_pagos));
     $('#card-deuda-jugadores').text(formatter.format(data.deuda_jugadores));
     $('#card-deuda-proveedores').text(formatter.format(data.deuda_proveedores));
+    
+    // Actualizar tarjetas de proveedores
+    if (data.total_pagado_proveedores !== undefined) {
+        $('#card-total-pagado-proveedores').text(formatter.format(data.total_pagado_proveedores));
+        $('#card-deuda-pendiente-proveedores').text(formatter.format(data.deuda_proveedores));
+        
+        // Colorear según si hay deuda o no
+        const deudaPendiente = $('#card-deuda-pendiente-proveedores');
+        if (data.deuda_proveedores > 0) {
+            deudaPendiente.removeClass('text-success').addClass('text-danger');
+        } else {
+            deudaPendiente.removeClass('text-danger').addClass('text-success');
+        }
+    }
+    
+    // Calcular total gastos proveedores
+    const totalGastosProveedores = data.total_gastos_proveedores !== undefined 
+        ? data.total_gastos_proveedores 
+        : data.total_gastos;
+    $('#card-total-gastos-proveedores').text(formatter.format(totalGastosProveedores));
 
     // Colorear tarjetas según valores
     const totalCards = $('#summaryCards .card');

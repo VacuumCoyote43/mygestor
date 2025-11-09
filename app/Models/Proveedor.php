@@ -37,6 +37,14 @@ class Proveedor extends Model
     }
 
     /**
+     * Un proveedor tiene muchas liquidaciones
+     */
+    public function liquidaciones(): HasMany
+    {
+        return $this->hasMany(ProveedorLiquidacion::class, 'proveedor_id', 'id_proveedor');
+    }
+
+    /**
      * Calcular el saldo del proveedor basado en gastos
      * 
      * @return float
@@ -53,5 +61,39 @@ class Proveedor extends Model
     {
         $this->saldo_proveedor = (string) $this->calcularSaldo();
         $this->save();
+    }
+
+    /**
+     * Calcular el balance del proveedor (gastos - liquidaciones)
+     * Positivo = deuda pendiente, Negativo o cero = pagado o a favor
+     * 
+     * @return float
+     */
+    public function getBalanceAttribute(): float
+    {
+        $totalGastos = (float) $this->gastos()->sum('importe_total_gasto');
+        $totalPagado = (float) $this->liquidaciones()->sum('monto');
+        
+        return $totalGastos - $totalPagado;
+    }
+
+    /**
+     * Obtener el total de gastos del proveedor
+     * 
+     * @return float
+     */
+    public function getTotalGastosAttribute(): float
+    {
+        return (float) $this->gastos()->sum('importe_total_gasto');
+    }
+
+    /**
+     * Obtener el total pagado en liquidaciones
+     * 
+     * @return float
+     */
+    public function getTotalPagadoAttribute(): float
+    {
+        return (float) $this->liquidaciones()->sum('monto');
     }
 }
