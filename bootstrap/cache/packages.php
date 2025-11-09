@@ -1,4 +1,11 @@
 <?php return array (
+  'laravel-notification-channels/telegram' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'NotificationChannels\\Telegram\\TelegramServiceProvider',
+    ),
+  ),
   'laravel/sail' => 
   array (
     'providers' => 

@@ -58,6 +58,12 @@ return [
       'ignore_exceptions' => false,
     ],
 
+    'telegram' => [
+      'driver' => 'custom',
+      'via' => App\Logging\TelegramLogger::class,
+      'level' => 'error',
+    ],
+
     'single' => [
       'driver' => 'single',
       'path' => storage_path('logs/laravel.log'),

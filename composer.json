@@ -9,6 +9,7 @@
   "license": "MIT",
   "require": {
     "php": "^8.2",
+    "laravel-notification-channels/telegram": "^6.0",
     "laravel/framework": "^11.0",
     "laravel/tinker": "^2.9",
     "maatwebsite/excel": "^3.1"
